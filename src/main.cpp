@@ -1,13 +1,9 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
+#include "engine.hpp"
 
-// settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
-int main()
-{
-	// glfw: initialize and configure
-	// ------------------------------
-	glfwInit();
+
+int main(){
+    Engine* engine;
+    engine = new Engine();
+    engine->run();
+    delete engine;
 }

@@ -3,7 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${default}",
+                "${workspaceFolder}/dependencies/GLFW/include",
+                "${workspaceFolder}/dependencies/GLM/",
+                "${workspaceFolder}/dependencies/GLAD/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -12,11 +15,8 @@
             ],
             "windowsSdkVersion": "10.0.18362.0",
             "cStandard": "c17",
-            "cppStandard": "c++17",
-            "compilerPath": "C:/mingw/bin/gcc.exe",
-            "intelliSenseMode": "clang-x86"
+            "cppStandard": "c++17"
         }
     ],
     "version": 4
 }
-
