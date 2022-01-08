@@ -14,35 +14,40 @@ void glfw_framebuffer_size_callback(GLFWwindow *window, int width, int height);
 class Engine
 {
 private:
-    bool initGLFW();
-    bool initGLAD();
-    bool init();
+	bool initGLFW();
+	bool initGLAD();
+	bool init();
 
-    void mainLoop();
+	void mainLoop();
 
-    void input();
-    void processEvents();
-    void draw();
+	void input();
+	void processEvents();
+	void draw();
 
-    void cleanUp();
+	void cleanUp();
 
 
-    void setFullScreen();
-    void setWindowedMode();
-    void setWindowSize();
-    
+	void setFullScreen();
+	void setWindowedScreen();
+	void setWindowedMode();
+	void setWindowSize();
+	
+	int width;
+	int height;
 
+	glm::vec4 vec;
+	glm::mat4 trans;
 
 public:
-    GLFWwindow* window;
+	GLFWwindow* window;
 
-    Engine();
-    ~Engine();
-    
-    Engine(const Engine &) = delete;
-    Engine &operator=(const Engine &) = delete;
+	Engine();
+	~Engine();
+	
+	Engine(const Engine &) = delete;
+	Engine &operator=(const Engine &) = delete;
 
 
-    void run();
+	void run();
 };
 #endif
