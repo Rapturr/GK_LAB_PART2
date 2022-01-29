@@ -6,6 +6,10 @@
 #include <ext.hpp>
 #include <vector>
 
+/**
+ * @brief Class handling drawiing primitives
+ * 
+ */
 class primitive{
     std::vector <GLfloat> verticles;
     GLfloat* vert;
@@ -23,6 +27,14 @@ class primitive{
         this->programID = programID;
     }
 
+    /**
+     * @brief adds new vertices
+     * 
+     * @param x position X
+     * @param y position Y
+     * @param screenX Window X size
+     * @param screenY Window Y size
+     */
     void addPoint(GLfloat x,GLfloat y,int screenX,int screenY){
         verticles.push_back((x/(0.5*screenX))-1);
         verticles.push_back(-((y/(0.5*screenY))-1));
@@ -31,6 +43,10 @@ class primitive{
         vert = verticles.data();
         
     }
+    /**
+     * @brief Clears the verticles vector
+     * 
+     */
     void resetPoints(){
         verticles.clear();
         for(int i=0;i<count*3;i++)
@@ -40,10 +56,19 @@ class primitive{
         }
         count =0;
     }
+    /**
+     * @brief Changes drawing mode
+     * 
+     * @param mode drawing mode
+     */
     void change_mode(int mode){
         this->mode = mode;
-        std::cout<<mode<<std::endl;
     }
+    /**
+     * @brief Draws the vertices on the screen
+     * 
+     * @param window 
+     */
     void draw(GLFWwindow* window){
     if(verticles.size() > 5){
         
@@ -57,23 +82,23 @@ class primitive{
     
     glUseProgram(programID);
     // This will identify our vertex buffer
-GLuint vertexbuffer;
-// Generate 1 buffer, put the resulting identifier in vertexbuffer
-glGenBuffers(1, &vertexbuffer);
-// The following commands will talk about our 'vertexbuffer' buffer
-glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-// Give our vertices to OpenGL.
-glBufferData(GL_ARRAY_BUFFER, sizeof(vert)*count*3, vert, GL_STATIC_DRAW);
-  glEnableVertexAttribArray(0);
-glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-glVertexAttribPointer(
-   0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-   3,                  // size
-   GL_FLOAT,           // type
-   GL_FALSE,           // normalized?
-   0,                  // stride
-   (void*)0            // array buffer offset
-);
+    GLuint vertexbuffer;
+    // Generate 1 buffer, put the resulting identifier in vertexbuffer
+    glGenBuffers(1, &vertexbuffer);
+    // The following commands will talk about our 'vertexbuffer' buffer
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    // Give our vertices to OpenGL.
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vert)*count*3, vert, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+    3,                  // size
+    GL_FLOAT,           // type
+    GL_FALSE,           // normalized?
+    0,                  // stride
+    (void*)0            // array buffer offset
+    );
 
             switch(mode)
             {

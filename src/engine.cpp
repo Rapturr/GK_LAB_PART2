@@ -42,30 +42,16 @@ bool Engine::initGLAD()
 
 bool Engine::init() 
 {
+    
     width = 1280;
     height = 720;
-
-    Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
-    programID = shader->LoadShaders();
-    cube = new Cube(programID);
-    prim = new primitive(programID);
-    /*cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-    cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
-    cameraDirection = glm::normalize(cameraPos - cameraTarget);
-    up = glm::vec3(0.0f, 1.0f, 0.0f);
-    cameraRight = glm::normalize(glm::cross(up, cameraDirection));
-    cameraUp = glm::cross(cameraDirection, cameraRight);
-    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f),
-  		   glm::vec3(0.0f, 0.0f, 0.0f),
-  		   glm::vec3(0.0f, 1.0f, 0.0f)
-    );*/
-    
+    camera = new Camera(width, height,glm::vec3(0.0f,0.0f,2.0f));
 
     if(!initGLFW()){
         std::cout << "Failed to initialize GLFW" << std::endl;
         return false;
     }
-    //glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
+    glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
@@ -92,7 +78,16 @@ bool Engine::init()
     trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
     vec = trans * vec;
     std::cout << vec.x << vec.y << vec.z << std::endl;
+    shader = new LShader();
+    programID = shader->LoadShaders();
     
+    cube = new Cube(programID);
+    //cube = new Cube();
+    prim = new primitive(programID);
+    //prim = new primitive();
+
+    
+    glEnable(GL_DEPTH_TEST);
     return true;
 }
 
@@ -100,7 +95,7 @@ void Engine::mainLoop()
 {
     while (glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS && !glfwWindowShouldClose(window))
     {
-        glm::mat4 view = camera.GetViewMatrix();
+        
         input();
         processEvents();
         draw();
@@ -129,6 +124,7 @@ void glfw_framebuffer_size_callback(GLFWwindow *window, int width, int height)
  */
 void Engine::input()
 {
+    camera->Inputs(window);
     if(glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS){
         width = 1920;
         height = 1080;
@@ -163,29 +159,20 @@ void Engine::input()
         prim->change_mode(6);
     }
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
-
     newTimeOnRightClick = glfwGetTime();
-    if(glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_1) == GLFW_PRESS && (newTimeOnRightClick >= oldTimeOnRightClick + 0.5 || newTimeOnRightClick == 0)){
+    if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS && (newTimeOnRightClick >= oldTimeOnRightClick + 0.5 || newTimeOnRightClick == 0)){
         oldTimeOnRightClick = newTimeOnRightClick;
         double xpos, ypos;
         int xScreen, yScreen;
         glfwGetWindowSize(window,&xScreen,&yScreen);
         glfwGetCursorPos(window, &xpos, &ypos);
-        std::cout<<"Mouse x: "<<(GLfloat)xpos<<" y: "<<(GLfloat)ypos<<std::endl;
+        /*std::cout<<"Mouse x: "<<(GLfloat)xpos<<" y: "<<(GLfloat)ypos<<std::endl;
         std::cout<<"Screen x: "<<xScreen<<" y: "<<yScreen<<std::endl;
-        std::cout<<"Time: "<<newTimeOnRightClick<<std::endl;
+        std::cout<<"Time: "<<newTimeOnRightClick<<std::endl;*/
         prim->addPoint((GLfloat)xpos,(GLfloat)ypos,xScreen,yScreen);
     }
     newTimeOnLeftClick = glfwGetTime();
-    if(glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_2) == GLFW_PRESS && (newTimeOnLeftClick >= oldTimeOnLeftClick + 0.5 || newTimeOnLeftClick == 0)){
+    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS && (newTimeOnLeftClick >= oldTimeOnLeftClick + 0.5 || newTimeOnLeftClick == 0)){
         oldTimeOnLeftClick = newTimeOnLeftClick;
         prim->resetPoints();
     }
@@ -196,7 +183,7 @@ void Engine::processEvents()
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
-
+    camera->Matrix(45.0f,0.1f,100.0f,*shader,"camMatrix");
 }
 
 void Engine::setFullScreen()
@@ -213,7 +200,8 @@ void Engine::setWindowedScreen()
 void Engine::draw()
 {
     glClearColor(0.2f, 0.2f, 0.4f, 0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    cube->draw();
     prim->draw(window);
     glfwSwapBuffers(window);
     glfwPollEvents();
