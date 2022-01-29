@@ -12,6 +12,13 @@
 #include <fstream>
 #include <sstream>
 
+
+/**
+ * @brief Shader class
+ * @param fragment_file_path fragment shader path
+ * @param vertex_file_path vertex shader path
+ * @param ProgramID Shader ID
+ */
 class LShader{
     const char * fragment_file_path = "core/shaders/default.frag";
     const char * vertex_file_path = "core/shaders/default.vert";

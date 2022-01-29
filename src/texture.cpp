@@ -25,6 +25,12 @@
 #define GL_COMPRESSED_RGBA_S3TC_DXT3_EXT 0x83F2
 #define GL_COMPRESSED_RGBA_S3TC_DXT5_EXT 0x83F3
 
+/**
+ * @brief Class that handles loading the textures
+ * 
+ * @param imagepath path to the image
+ * @return GLuint returns translated image to Glut's integer?
+ */
 GLuint loadDDS(const char * imagepath){
 
 	unsigned char header[124];

@@ -14,13 +14,14 @@
  * @brief Creates a cube
  * @param programID Id of the used shader
  * @param g_vertex_buffer_data Array of the cube's vertices
- * @param g_color_buffer_data 
- * @param g_uv_buffer_data 
- * @param colorbuffer 
- * @param vertexbuffer
- * @param VertexArrayID
- * @param uvbuffer
- * @param 
+ * @param g_color_buffer_data Array of the cube's color data
+ * @param g_uv_buffer_data Array of the cube's UV data, how to put textures
+ * @param colorbuffer buffer from the color's array
+ * @param vertexbuffer buffer from the vertex array
+ * @param VertexArrayID Vertext ID, not used, I don't know why we didn't delete it, but I don't feel like deleting it now...
+ * @param uvbuffer Buffer from the uv array
+ * @param TextureID texture ID
+ * @param texture texture object
  */
 class Cube{
     public:
@@ -118,7 +119,7 @@ class Cube{
     /**
      * @brief Construct a new Cube object
      * 
-     * @param programID 
+     * @param programID shader id
      */
     Cube(GLuint programID){
         this->programID = programID;

@@ -7,8 +7,14 @@
 #include <vector>
 
 /**
- * @brief Class handling drawiing primitives
+ * @brief Class handling drawing primitives
  * 
+ * @param verticles contains the positions of verticles
+ * @param vert verticles data
+ * @param startPoint does nothing
+ * @param endPoint does nothing
+ * @param count vertices count
+ * @param mode drawing mode
  */
 class primitive{
     std::vector <GLfloat> verticles;
@@ -67,7 +73,7 @@ class primitive{
     /**
      * @brief Draws the vertices on the screen
      * 
-     * @param window 
+     * @param window window object
      */
     void draw(GLFWwindow* window){
     if(verticles.size() > 5){
