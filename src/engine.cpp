@@ -79,15 +79,16 @@ bool Engine::init()
     vec = trans * vec;
     std::cout << vec.x << vec.y << vec.z << std::endl;
     shader = new LShader();
-    programID = shader->LoadShaders();
+    programID = shader->LoadShaders("core/shaders/texturevert.frag","core/shaders/texturecube.vert");
     
     cube = new Cube(programID);
     //cube = new Cube();
     prim = new primitive(programID);
     //prim = new primitive();
-
+    
     
     glEnable(GL_DEPTH_TEST);
+
     return true;
 }
 
@@ -166,9 +167,9 @@ void Engine::input()
         int xScreen, yScreen;
         glfwGetWindowSize(window,&xScreen,&yScreen);
         glfwGetCursorPos(window, &xpos, &ypos);
-        /*std::cout<<"Mouse x: "<<(GLfloat)xpos<<" y: "<<(GLfloat)ypos<<std::endl;
+        std::cout<<"Mouse x: "<<(GLfloat)xpos<<" y: "<<(GLfloat)ypos<<std::endl;
         std::cout<<"Screen x: "<<xScreen<<" y: "<<yScreen<<std::endl;
-        std::cout<<"Time: "<<newTimeOnRightClick<<std::endl;*/
+        std::cout<<"Time: "<<newTimeOnRightClick<<std::endl;
         prim->addPoint((GLfloat)xpos,(GLfloat)ypos,xScreen,yScreen);
     }
     newTimeOnLeftClick = glfwGetTime();

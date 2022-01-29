@@ -17,8 +17,11 @@ class LShader{
     const char * vertex_file_path = "core/shaders/default.vert";
 	public:
 	GLuint ProgramID;
-    GLuint LoadShaders(){
-	std::cout<<"CZY TUTAJ JEST BLAD? \n"<<fragment_file_path<<" "<<vertex_file_path<<std::endl;
+    GLuint LoadShaders(const char* fragment_path, const char* vertex_path){
+	
+	fragment_file_path = fragment_path;
+	vertex_file_path = vertex_path;
+
 	// Create the shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
