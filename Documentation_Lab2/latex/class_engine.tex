@@ -1,0 +1,133 @@
+\hypertarget{class_engine}{}\doxysection{Engine Class Reference}
+\label{class_engine}\index{Engine@{Engine}}
+
+
+\mbox{\hyperlink{class_engine}{Engine}} is the core class of the program.  
+
+
+
+
+{\ttfamily \#include $<$engine.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_engine}{Engine}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}{$\sim$\+Engine}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_engine}{Engine}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480}{Engine}} (const \mbox{\hyperlink{class_engine}{Engine}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_engine}{Engine}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_engine}{Engine}} \& \mbox{\hyperlink{class_engine_aa47d31dddf21d300e5e0498016bdbf33}{operator=}} (const \mbox{\hyperlink{class_engine}{Engine}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_engine_a1a210cf30d6bd330b3649439ecd6d6cc}{run}} ()
+\begin{DoxyCompactList}\small\item\em initialises the init function and cleanup \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_ae045425baa2fd8b0667b603bc413b333}\label{class_engine_ae045425baa2fd8b0667b603bc413b333}} 
+\mbox{\hyperlink{group__window_ga3c96d80d363e67d13a41b5d1821f3242}{G\+L\+F\+Wwindow}} $\ast$ {\bfseries window}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_engine}{Engine}} is the core class of the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & the width of the screen \\
+\hline
+{\em height} & the height of the screen \\
+\hline
+{\em stan} & unused!!! \\
+\hline
+{\em input\+Flag} & unused!!! \\
+\hline
+{\em old\+Time\+On\+Right\+Click} & helps to measure time between clicks \\
+\hline
+{\em new\+Time\+On\+Right\+Click} & helps to measure time between clicks \\
+\hline
+{\em old\+Time\+On\+Left\+Click} & helps to measure time between clicks \\
+\hline
+{\em new\+Time\+On\+Left\+Click} & helps to measure time between clicks \\
+\hline
+{\em delta\+Time} & unused, but we planned to use it \\
+\hline
+{\em last\+Frame} & unused, but we planned to use it \\
+\hline
+{\em camera} & camera object \\
+\hline
+{\em vec} & vec matrix \\
+\hline
+{\em trans} & trans matrix \\
+\hline
+{\em prim} & primitive object \\
+\hline
+{\em cube} & cube object \\
+\hline
+{\em shader} & shader object \\
+\hline
+{\em program\+ID} & shader id \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}\label{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_engine}{Engine}} object. 
+
+\mbox{\Hypertarget{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}\label{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}} 
+\index{Engine@{Engine}!````~Engine@{$\sim$Engine}}
+\index{````~Engine@{$\sim$Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{$\sim$Engine()}{~Engine()}}
+{\footnotesize\ttfamily Engine\+::$\sim$\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_engine}{Engine}} object. 
+
+\mbox{\Hypertarget{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480}\label{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480}} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_engine}{Engine}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_engine}{Engine}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_aa47d31dddf21d300e5e0498016bdbf33}\label{class_engine_aa47d31dddf21d300e5e0498016bdbf33}} 
+\index{Engine@{Engine}!operator=@{operator=}}
+\index{operator=@{operator=}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_engine}{Engine}}\& Engine\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_engine}{Engine}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_engine}{Engine}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_engine_a1a210cf30d6bd330b3649439ecd6d6cc}\label{class_engine_a1a210cf30d6bd330b3649439ecd6d6cc}} 
+\index{Engine@{Engine}!run@{run}}
+\index{run@{run}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Engine\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+initialises the init function and cleanup 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/moje/\+Studia\+\_\+\+Sem\+\_\+5/studia/\+Podstawy\+\_\+grafiki\+\_\+komputerowej/\+Lab/pr1/projekt/\+G\+K\+\_\+\+L\+A\+B\+\_\+\+P\+A\+R\+T2/src/engine.\+hpp\item 
+E\+:/moje/\+Studia\+\_\+\+Sem\+\_\+5/studia/\+Podstawy\+\_\+grafiki\+\_\+komputerowej/\+Lab/pr1/projekt/\+G\+K\+\_\+\+L\+A\+B\+\_\+\+P\+A\+R\+T2/src/engine.\+cpp\end{DoxyCompactItemize}

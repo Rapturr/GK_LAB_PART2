@@ -1,0 +1,117 @@
+\hypertarget{class_cube}{}\doxysection{Cube Class Reference}
+\label{class_cube}\index{Cube@{Cube}}
+
+
+Creates a cube.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}{Cube}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_cube}{Cube}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cube_a499c4c6b44b7c80ed625f75bda60f554}{Cube}} (G\+Luint program\+ID)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_cube}{Cube}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_ab26b72a81376fd5dc4fcc7f0b715b087}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the cube. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cube_abb64884e040a5941276504b5cbdec0df}\label{class_cube_abb64884e040a5941276504b5cbdec0df}} 
+G\+Luint {\bfseries program\+ID}
+\item 
+\mbox{\Hypertarget{class_cube_a28b11bc454ad2b0220be5df1a870366c}\label{class_cube_a28b11bc454ad2b0220be5df1a870366c}} 
+G\+Lfloat {\bfseries g\+\_\+vertex\+\_\+buffer\+\_\+data} \mbox{[}108\mbox{]}
+\item 
+\mbox{\Hypertarget{class_cube_ad798e10da5ec30e9f8d800d869a18a03}\label{class_cube_ad798e10da5ec30e9f8d800d869a18a03}} 
+G\+Lfloat {\bfseries g\+\_\+uv\+\_\+buffer\+\_\+data} \mbox{[}108\mbox{]}
+\item 
+\mbox{\Hypertarget{class_cube_adefe4aef0592cbcd0ad64bb22650d558}\label{class_cube_adefe4aef0592cbcd0ad64bb22650d558}} 
+G\+Luint {\bfseries vertexbuffer}
+\item 
+\mbox{\Hypertarget{class_cube_acf3a3926e6d716f673a1e4b608318db6}\label{class_cube_acf3a3926e6d716f673a1e4b608318db6}} 
+G\+Luint {\bfseries Vertex\+Array\+ID}
+\item 
+\mbox{\Hypertarget{class_cube_ae7d20d8aa4cef3935e5067a0958068b3}\label{class_cube_ae7d20d8aa4cef3935e5067a0958068b3}} 
+G\+Luint {\bfseries uvbuffer}
+\item 
+\mbox{\Hypertarget{class_cube_a68d1b652a6bd84f021d1406ab773058c}\label{class_cube_a68d1b652a6bd84f021d1406ab773058c}} 
+G\+Luint {\bfseries Texture\+ID}
+\item 
+\mbox{\Hypertarget{class_cube_a7491eac198a72008902dc3ad42344011}\label{class_cube_a7491eac198a72008902dc3ad42344011}} 
+G\+Luint {\bfseries texture} = load\+D\+DS(\char`\"{}../assets/imagea.\+D\+DS\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creates a cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program\+ID} & Id of the used shader \\
+\hline
+{\em g\+\_\+vertex\+\_\+buffer\+\_\+data} & Array of the cube\textquotesingle{}s vertices \\
+\hline
+{\em g\+\_\+color\+\_\+buffer\+\_\+data} & Array of the cube\textquotesingle{}s color data \\
+\hline
+{\em g\+\_\+uv\+\_\+buffer\+\_\+data} & Array of the cube\textquotesingle{}s UV data, how to put textures \\
+\hline
+{\em colorbuffer} & buffer from the color\textquotesingle{}s array \\
+\hline
+{\em vertexbuffer} & buffer from the vertex array \\
+\hline
+{\em Vertex\+Array\+ID} & Vertext ID, not used, I don\textquotesingle{}t know why we didn\textquotesingle{}t delete it, but I don\textquotesingle{}t feel like deleting it now... \\
+\hline
+{\em uvbuffer} & Buffer from the uv array \\
+\hline
+{\em Texture\+ID} & texture ID \\
+\hline
+{\em texture} & texture object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}\label{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}} 
+\index{Cube@{Cube}!Cube@{Cube}}
+\index{Cube@{Cube}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{Cube()}{Cube()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cube\+::\+Cube (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_cube}{Cube}} object. 
+
+\mbox{\Hypertarget{class_cube_a499c4c6b44b7c80ed625f75bda60f554}\label{class_cube_a499c4c6b44b7c80ed625f75bda60f554}} 
+\index{Cube@{Cube}!Cube@{Cube}}
+\index{Cube@{Cube}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{Cube()}{Cube()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cube\+::\+Cube (\begin{DoxyParamCaption}\item[{G\+Luint}]{program\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_cube}{Cube}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program\+ID} & shader id \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cube_ab26b72a81376fd5dc4fcc7f0b715b087}\label{class_cube_ab26b72a81376fd5dc4fcc7f0b715b087}} 
+\index{Cube@{Cube}!draw@{draw}}
+\index{draw@{draw}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Cube\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the cube. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/moje/\+Studia\+\_\+\+Sem\+\_\+5/studia/\+Podstawy\+\_\+grafiki\+\_\+komputerowej/\+Lab/pr1/projekt/\+G\+K\+\_\+\+L\+A\+B\+\_\+\+P\+A\+R\+T2/src/cube.\+cpp\end{DoxyCompactItemize}
